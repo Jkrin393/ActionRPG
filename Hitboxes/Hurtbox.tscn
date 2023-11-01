@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cionbwhfir4b"]
+
+[ext_resource type="Script" path="res://Hitboxes/Hurtbox.gd" id="1_v17x3"]
+
+[node name="Hurtbox" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_v17x3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="invicibility_ended" from="." to="." method="_on_invicibility_ended"]
+[connection signal="invicibility_started" from="." to="." method="_on_invicibility_started"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
